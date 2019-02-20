@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+		<meta charset="UTF-8">
+<html>
+
+	<head>
+		<title>生命计算器</title>
+		<style type="text/css">
+			html body{font-size: 16px;}
+			form{margin:100px auto;width:400px;}
+			p{width:450px;margin: 0 auto;color: red;}
+		</style>
+		
+		
+	</head>
+
+	<body>
+		<form action="" method="post">
+		<h3 >输入阳历生日有惊喜哟^_^</h3>	
+		<input type="number" max="2019" min="1900" name="z" id="zzz" value="" placeholder="1900-2019" style="width: 100px;"/>年
+		<input type="number" max="12" min="1" name="y" id="yyy" value="" placeholder="1-12"style="width: 50px;"/>月		
+		<input type="number" max="31" min="1" name="x" id="xxx" value="" placeholder="1-31"style=" width: 50px;"/>日
+		<input type="button" name="" id="time" value="提交"  />
+		</form>
+		<p><span style="font-size: 20px;">注意：</span>如果想要知道准确的时间，务必输入<b>新历生日</b>。<br />如果只记得自己的农历生日，可以到手机日历里找到对应新历时间哦^_^</p>
+		
+		
+		<script type="text/javascript">
+			var oDate = new Date();
+			var day = oDate.getDate();
+			var month = oDate.getMonth()+1;
+			var year = oDate.getFullYear();
+			
+			time.onclick=function(){
+			var z=zzz.value;
+			var y=yyy.value;
+			var x=xxx.value;
+			var d=0;
+			var b=0;
+//			获取出生时间
+			
+			
+			
+			
+			
+			if(z==year){}
+			else{
+			if(y==1||y==3||y==5||y==7||y==8||y==10||y==12){
+				d=32-x;
+			}else if(y==2){if(z%4==0&&z%100!=0 || z%400==0){d=30-x;}else{d=29-x}
+			}else{d=31-x;}
+			//出生那个月的天数
+			
+			for(++y;y<=12;y++){
+				if(y==3||y==5||y==7||y==8||y==10||y==12){
+					d=d+31;
+				}else if(y==2){
+					if(z%4==0&&z%100!=0 || z%400==0){d=d+29;}else{d=d+28;}}
+				else{d=d+30;}
+			}
+			}
+			//出生那一年的生活时间
+			
+			
+			for(++z;z<2019;z++){
+				if(z%4==0&&z%100!=0 || z%400==0){d=d+366;}
+				else{d=d+365;}
+			}
+//			今年以前生活的时间
+
+			for(++b;b<month;b++){
+				if(b==1||b==3||b==5||b==7||b==8||b==10||b==12){
+				d=d+31;
+			}else if(b==2){if(year%4==0&&year%100!=0 || year%400==0){d=d+29;}else{d=d+28;}
+			}else{d=d+30;}
+			}
+			//今年这个月以前生活的时间
+			
+			d=d+day;
+			//加上今年这个月生活的时间
+
+			alert("亲,您已经来到这个美丽的世界"+  d+"天了哦^_^")
+//			document.write(year,month,day)
+			}
+		</script>
+	</body>
+
+</html>
