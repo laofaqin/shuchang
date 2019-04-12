@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="number" name="year" id="year" value="" />年
+		<input type="number" name="mon" id="mon" value="" />月
+		<input type="number" name="" id="dat" value="" />日
+		<input type="button" name="btn" id="btn" value="提交" />
+		<script type="text/javascript">
+			btn.onclick = function(){
+				var z = year.value;
+				var y = mon.value;
+				var x = dat.value;
+				//			获取出生时间
+
+				if(z == "") {
+					alert("请输入年份");
+					return;
+				}                //年份为空提示
+				if(y == "") {
+					alert("请输入月份");
+					return;
+				}                 //月份为空提示
+				if(y < 1 || y > 12) {
+					alert("亲，别皮了，快老老实实输入月份^_^");
+					return;
+				}
+				if(x == "") {
+					alert("请输入日期");
+					return;
+				}
+				if(x < 1 || x > 31) {
+					alert("亲，别皮了，快老老实实输入日期^_^");
+					return;
+				}
+
+				if(y == 2 || y == 4 || y == 6 || y == 9 || y == 11) {
+					if(x == 31) {
+						alert("嗨，这个月可没有31天哦！");
+						return;
+					}
+				}
+
+				if(y == 2 && x == 30) {
+					alert("嗨，这个月可没有30天哦！");
+					return;
+				}
+
+				if(z % 100 == 0 && z % 400 != 0 || z % 4 != 0) {
+					if(y == 2 && x == 29) {
+						alert("那年可是平年哦，没有29天呢。");
+						return;
+					}
+				}
+				//错误时间提示
+
+				if(z == year && y == month && x > day || z == year && y > month || z > year) {
+					alert("朋友，请问你是来自未来吗？");
+					return;
+				}
+				//未来时间提示
+				
+				
+				var oDate = new Date();   //取当下时间；
+				var odate2 = new Date();  //赋值过去时间
+				odate2.setFullYear(year.value);
+				odate2.setMonth(mon.value-1);
+				odate2.setDate(dat.value);
+				var ss = Math.floor((oDate-odate2)/1000);   //取时间差的秒数
+				var day = Math.floor(ss/3600/24)+1;  //加上活着那一天
+				alert("亲，这是您生命的第"+day+"天");
+			}
+			
+		</script>
+	</body>
+</html>
