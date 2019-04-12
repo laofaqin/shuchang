@@ -15,6 +15,17 @@
 				var y = mon.value;
 				var x = dat.value;
 				//			获取出生时间
+				
+				
+				
+				var oDate = new Date();   //取当下时间；
+				var years = oDate.getFullYear(),
+					months = oDate.getMonth(),
+					days = oDate.getDate();
+				var odate2 = new Date();  //赋值过去时间
+				odate2.setFullYear(year.value);
+				odate2.setMonth(mon.value-1);
+				odate2.setDate(dat.value);
 
 				if(z == "") {
 					alert("请输入年份");
@@ -57,18 +68,14 @@
 				}
 				//错误时间提示
 
-				if(z == year && y == month && x > day || z == year && y > month || z > year) {
+				if(z == years && y == months && x > days || z == years && y > months || z > years) {
 					alert("朋友，请问你是来自未来吗？");
 					return;
 				}
 				//未来时间提示
 				
 				
-				var oDate = new Date();   //取当下时间；
-				var odate2 = new Date();  //赋值过去时间
-				odate2.setFullYear(year.value);
-				odate2.setMonth(mon.value-1);
-				odate2.setDate(dat.value);
+				
 				var ss = Math.floor((oDate-odate2)/1000);   //取时间差的秒数
 				var day = Math.floor(ss/3600/24)+1;  //加上活着那一天
 				alert("亲，这是您生命的第"+day+"天");
