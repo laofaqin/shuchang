@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//console.log(Math.PI);
+			
+			//console.log(Math.abs(-10),Math.round(1.1),Math.round(1.7),Math.ceil(1.1),Math.ceil(1.7),Math.floor(1.1),Math.floor(1.7));
+			
+			//console.log(Math.min(1,2,3,-1),Math.max(1,2,3,-1));
+			
+			//随机数取整
+			
+			//console.log(Math.floor(Math.random()*11))
+			
+			//console.log(Math.floor(Math.random()*(m-n+1)+n));
+			
+			//随机数取整
+			
+			/*for(j=0; j<10; j++){  //打印10个随机四位验证码
+				var randChar = "";
+				for(; randChar.length != 4;){     //用for循环
+					var randNum = Math.floor(Math.random()*43+48);
+					if(randNum >= 48&&randNum<=57 || randNum>=65&&randNum<=90){
+						var char = String.fromCharCode(randNum);
+						randChar += char;
+					}
+				}
+				console.log(randChar);
+				document.write(randChar+"<br />");
+			}*/
+			
+			 var randChar = "";
+			 while(randChar.length < 4){    //用while循环
+			 	var randNum = Math.floor(Math.random()*43+48);
+			 	var char = String.fromCharCode(randNum);
+			 	if(randNum>=48&&randNum<=57 || randNum>=66&&randNum<=90){
+				 	randChar += char;
+			 	}
+			 }
+			 console.log(randChar);
+		</script>
+	</body>
+</html>
